@@ -8,7 +8,7 @@ client.once('ready', () => {
     console.log('Ready!');
 })
 
-client.on('messageCreate', (message) => {
+client.on('messageCreate', async (message) => {
     if(message.author.id === client.user.id) return;
 
     if(message.content.toLowerCase().includes("bazinga")) {
@@ -18,6 +18,18 @@ client.on('messageCreate', (message) => {
     if(message.content.toLowerCase().includes("sus")) {
         message.reply("Among us!");
         message.channel.send({ files: ['https://cdn.vox-cdn.com/thumbor/mCze0k6_0Bv5YMVQHk80zXi2ciI=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22136080/ss_a0f2416e11bf5b47788eaa3617e092b73962b145.jpg'] });
+    }
+
+    if(message.content.toLowerCase() === 'score') {
+        let user = await TicTacToe.findOne({ 
+            where: {
+                user_id: message.author.id
+            }
+        });
+        if(!user) {
+            user = await TicTacToe.create({ user_id: message.author.id })
+        }
+        message.reply("Your score is " + user.get('score'));
     }
 })
 
@@ -153,6 +165,7 @@ client.on('interactionCreate', async interaction => {
         })
         return;
     }
+
 
     /* Bot Functionality */
     let botRow
