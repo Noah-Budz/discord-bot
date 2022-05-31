@@ -31,6 +31,24 @@ client.on('messageCreate', async (message) => {
         }
         message.reply("Your score is " + user.get('score'));
     }
+
+    if(message.content.toLowerCase() === 'morb') {
+        var rand = Math.floor(Math.random() * 3);
+
+        switch (rand) {
+            case 0:
+                message.channel.send({ files: ['https://pbs.twimg.com/media/FToZcKQXsAEDLGQ.jpg'] });
+                break;
+            case 1:
+                message.reply("I just Morbed!!");
+                break;
+            case 2:
+                message.channel.send({ files: ['https://preview.redd.it/3ost7y8wr6t81.jpg?width=640&crop=smart&auto=webp&s=799ce5cff63bbed2eabfbf74bcb82c244d938fe4'] });
+                break;
+        }
+    }
+
+
 })
 
 
