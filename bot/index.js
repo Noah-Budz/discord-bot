@@ -16,8 +16,7 @@ client.on('messageCreate', async (message) => {
     }
 
     if(message.content.toLowerCase().includes("sus")) {
-        message.reply("Among us!");
-        message.channel.send({ files: ['https://cdn.vox-cdn.com/thumbor/mCze0k6_0Bv5YMVQHk80zXi2ciI=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22136080/ss_a0f2416e11bf5b47788eaa3617e092b73962b145.jpg'] });
+        message.reply("Among us!", { files: ['https://cdn.vox-cdn.com/thumbor/mCze0k6_0Bv5YMVQHk80zXi2ciI=/1400x1050/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/22136080/ss_a0f2416e11bf5b47788eaa3617e092b73962b145.jpg'] });
     }
 
     if(message.content.toLowerCase() === 'score') {
@@ -37,13 +36,13 @@ client.on('messageCreate', async (message) => {
 
         switch (rand) {
             case 0:
-                message.channel.send({ files: ['https://pbs.twimg.com/media/FToZcKQXsAEDLGQ.jpg'] });
+                message.reply({ files: ['https://pbs.twimg.com/media/FToZcKQXsAEDLGQ.jpg'] });
                 break;
             case 1:
                 message.reply("I just Morbed!!");
                 break;
             case 2:
-                message.channel.send({ files: ['https://preview.redd.it/3ost7y8wr6t81.jpg?width=640&crop=smart&auto=webp&s=799ce5cff63bbed2eabfbf74bcb82c244d938fe4'] });
+                message.reply({ files: ['https://preview.redd.it/3ost7y8wr6t81.jpg?width=640&crop=smart&auto=webp&s=799ce5cff63bbed2eabfbf74bcb82c244d938fe4'] });
                 break;
         }
     }
